@@ -1,5 +1,4 @@
 // Custom layout styles
-
 // Default font family
 @font-face {
   font-family: 'gotham-rounded';
@@ -33,4 +32,8 @@ body {
     position: relative;
     top: -5px;
   }
+}
+
+#mmybutton{
+  text-align: right;
 }
