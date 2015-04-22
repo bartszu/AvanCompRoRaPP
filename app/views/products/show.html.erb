@@ -1,0 +1,54 @@
+<div class="large-3 small-12 column">
+
+<%=image_tag @product.image%>
+
+</div>
+<div class="large-9 small-12 column">
+
+  <h3>
+    <%= @product.name %>
+    <%= @product.date_added %>
+    <%=link_to @product.product_id do%>
+
+      <%=image_tag asset_path("imdb_logo.png")%>
+
+    <%end%>
+  </h3>
+  <p class="label movie-label radius mb1">€ <%= @product.price %></p>
+
+  <p><%= @product.description %></p>
+
+</h3> 
+
+
+<%if not signed_in?%>
+<div class="button">
+ <i class="fi-shopping-cart"></i>
+<%= link_to "Add To Cart", some_noti_path %>
+
+<%end%>
+
+
+<%if signed_in?%>
+<%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do%>
+      
+<i class="fi-shopping-cart"></i>
+<span><%=@cart_action%></span> Cart
+
+<%end%>
+
+<%if signed_in?%>
+<%=link_to "Continue Shopping", root_path, class: "button" %>
+<%end%>
+<%end%>
+
+  
+<%if signed_in?%>
+<%= link_to cart_path do %>
+<div class="button">
+
+              <i class="fi-shopping-cart"></i> My Cart (<span class="cart-count"><%=current_user.cart_count%></span>)
+            <%end%>
+<%end%>
+
+</div>
